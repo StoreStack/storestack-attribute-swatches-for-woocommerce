@@ -55,9 +55,9 @@ span.selected-option-label {
    flex-wrap: wrap;
    padding-block: 8px;
 
-   &.color,
-   &.image,
-   &.text {
+   &.ssasfw-swatch-color,
+   &.ssasfw-swatch-image,
+   &.ssasfw-swatch-button {
       gap: 4.5px;
    }
 }
@@ -104,8 +104,8 @@ span.selected-option-label {
 }
 
 /* Circular swatches (color & image) */
-.ssasfw-swatch-wrapper.color,
-.ssasfw-swatch-wrapper.image {
+.ssasfw-swatch-wrapper.ssasfw-swatch-color,
+.ssasfw-swatch-wrapper.ssasfw-swatch-image {
    width: 40px;
    height: 40px;
    padding: 1.25px;
@@ -116,9 +116,9 @@ span.selected-option-label {
    }
 }
 
-/* Text and radio shared styles */
-.ssasfw-swatch-wrapper.text,
-.ssasfw-swatch-wrapper.radio {
+/* Button and radio shared styles */
+.ssasfw-swatch-wrapper.ssasfw-swatch-button,
+.ssasfw-swatch-wrapper.ssasfw-swatch-radio {
    line-height: 1.2;
 
    &.selected {
@@ -126,14 +126,14 @@ span.selected-option-label {
    }
 }
 
-/* Text swatch specific */
-.ssasfw-swatch-wrapper.text {
+/* Button swatch specific */
+.ssasfw-swatch-wrapper.ssasfw-swatch-button {
    padding: 8px 12px;
    border-radius: 4px;
 }
 
 /* Radio swatch specific */
-.ssasfw-swatch-wrapper.radio {
+.ssasfw-swatch-wrapper.ssasfw-swatch-radio {
    width: 100%;
 
    &:first-child {

@@ -70,7 +70,7 @@ class Swatches extends AbstractBase
         return array_merge($types, [
             'color'  => __('Color', 'storestack-attribute-swatches-for-woocommerce'),
             'image'  => __('Image', 'storestack-attribute-swatches-for-woocommerce'),
-            'text'   => __('Text', 'storestack-attribute-swatches-for-woocommerce'),
+            'button' => __('Button', 'storestack-attribute-swatches-for-woocommerce'),
             'radio'  => __('Radio', 'storestack-attribute-swatches-for-woocommerce')
         ]);
     }
@@ -342,7 +342,7 @@ class Swatches extends AbstractBase
             }
         }
 
-        $swatch_html = sprintf('<div class="ssasfw-swatch-container %s %s">', esc_attr($attribute->type), esc_attr($attribute_name));
+        $swatch_html = sprintf('<div class="ssasfw-swatch-container ssasfw-swatch-%s %s">', esc_attr($attribute->type), esc_attr($attribute_name));
 
         // Render ungrouped swatches
         if (!empty($ungrouped_terms)) {
@@ -382,7 +382,13 @@ class Swatches extends AbstractBase
          */
         $option_label = apply_filters('woocommerce_variation_option_name', $term->name, $term, $attribute->slug, $args['product']); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
-        $html = sprintf('<div class="ssasfw-swatch-wrapper %s %s" data-slug="%s" data-label="%s">', esc_attr($attribute->type), esc_attr($selected), esc_attr($term->slug), esc_attr($option_label));
+        $html = sprintf(
+            '<div class="ssasfw-swatch-wrapper ssasfw-swatch-%s %s" data-slug="%s" data-label="%s">',
+            esc_attr($attribute->type),
+            esc_attr($selected),
+            esc_attr($term->slug),
+            esc_attr($option_label)
+        );
 
         if ($attribute->type === 'color') {
             $color = get_term_meta($term->term_id, 'ssasfw_swatch_color', true);
@@ -390,8 +396,8 @@ class Swatches extends AbstractBase
         } elseif ($attribute->type === 'image') {
             $img_id = get_term_meta($term->term_id, 'ssasfw_swatch_image', true);
             $html .= $img_id ? wp_get_attachment_image($img_id, 'thumbnail', false, ['class' => 'image-swatch']) : wp_kses_post($img_placeholder);
-        } elseif ($attribute->type === 'text') {
-            $html .= sprintf('<div class="text-swatch">%s</div>', esc_html($option_label));
+        } elseif ($attribute->type === 'button') {
+            $html .= sprintf('<div class="button-swatch">%s</div>', esc_html($option_label));
         } elseif ($attribute->type === 'radio') {
             $html .= sprintf('<label class="radio-swatch"><input type="radio" %s><span>%s</span></label>', $selected ? 'checked' : '', esc_html($option_label));
         }

@@ -1,6 +1,6 @@
 # StoreStack Attribute Swatches for WooCommerce
 
-Transform WooCommerce variation dropdowns into beautiful, interactive color, image, text, and radio swatches with custom grouping and tooltips.
+Transform WooCommerce variation dropdowns into beautiful, interactive color, image, button, and radio swatches with custom grouping and tooltips.
 
 **Contributors:** [tiagosartor3](https://profiles.wordpress.org/tiagosartor3), [storestack](https://profiles.wordpress.org/storestack)  
 **Tags:** `woocommerce`, `swatches`, `variation swatches`, `attribute swatches`, `image swatches`  
@@ -14,15 +14,15 @@ Transform WooCommerce variation dropdowns into beautiful, interactive color, ima
 
 ## Description
 
-**StoreStack Attribute Swatches for WooCommerce** replaces default, plain WooCommerce variation dropdowns with visual, interactive swatches. Easily display product colors, pattern images, text badges, and radio options to improve user experience and boost conversions on your online store.
+**StoreStack Attribute Swatches for WooCommerce** replaces default, plain WooCommerce variation dropdowns with visual, interactive swatches. Easily display product colors, pattern images, inline text buttons, and radio options to improve user experience and boost conversions on your online store.
 
 ### Features
 
-* **Multiple Swatch Types**: Convert default attribute dropdowns into **Color**, **Image**, **Text**, or **Radio** swatches.
+* **Multiple Swatch Types**: Convert default attribute dropdowns into **Color**, **Image**, **Button**, or **Radio** swatches.
 * **Color Swatches**: Integrated HEX Color Picker allows precise color assignments for each attribute option.
 * **Image Swatches**: Assign custom images or texture swatches directly from the WordPress Admin.
 * **Interactive Tooltips**: Hovering over image swatches triggers a dynamic thumbnail preview.
-* **Text / Label Swatches**: Pill-style buttons ideal for sizes (S, M, L, XL), dimensions, and specifications.
+* **Button Swatches**: Ideal for sizes (S, M, L, XL), dimensions, and specifications.
 * **Radio Swatches**: Classic radio list options for clean, structured variation choices.
 * **Swatch Grouping**: Group related terms into custom categories (e.g. "Primary Colors", "Metallic Finishes", "Standard Sizes") with visual section headers.
 * **Fully Responsive & Lightweight**: Pure CSS styling and minimal JavaScript overhead ensure fast load times and seamless mobile browsing.
@@ -63,7 +63,7 @@ Your feedback and code contributions help make this plugin better for everyone.
 
 2. **Configure Attribute Types**:
    - Go to **Products > Attributes** in your WordPress Admin.
-   - Edit an existing attribute or create a new one, then set the **Type** to **Color**, **Image**, **Text**, or **Radio**.
+   - Edit an existing attribute or create a new one, then set the **Type** to **Color**, **Image**, **Button**, or **Radio**.
    - Create **Groups** if you want to separate options into subgroups.
 
 3. **Assign Swatches & Groups**:
@@ -81,7 +81,7 @@ Your feedback and code contributions help make this plugin better for everyone.
 ## Frequently Asked Questions
 
 ### What swatch types are supported?
-The plugin currently supports four swatch types: **Color**, **Image**, **Text** (custom text badges), and **Radio**.
+The plugin currently supports four swatch types: **Color**, **Image**, **Button**, and **Radio**.
 
 ### How do Swatch Groups work?
 When editing an attribute under **Products > Attributes**, you can define custom group names. When editing individual terms (e.g. Blue, Red, Metallic Silver), assign them to a group. On the frontend, swatches will be organized under titled section headers for better visual hierarchy.
