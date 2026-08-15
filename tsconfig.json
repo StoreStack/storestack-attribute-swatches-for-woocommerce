@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    /* Environment Settings */
+    "target": "ES2022",
+    "module": "ESNext",
+
+    /* Build Output */
+    "outDir": "./assets/js",
+    "rootDir": "./src",
+    "removeComments": true,
+    "sourceMap": true,
+
+    /* Strictness & Quality */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,  
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,  
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+
+    /* Compatibility */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Recommended Options */
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "noUncheckedSideEffectImports": true,
+  }
+}

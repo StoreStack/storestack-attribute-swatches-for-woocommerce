@@ -1,0 +1,6 @@
+.*
+.*/
+src/
+*.js.map
+tsconfig.json
+README.md
