@@ -7,7 +7,7 @@ Transform WooCommerce variation dropdowns into beautiful, interactive color, ima
 **Requires at least:** 6.2  
 **Tested up to:** 7.0  
 **Requires PHP:** 8.1  
-**Stable tag:** 1.0.0  
+**Stable tag:** 1.0.1  
 **License:** [GPLv3 or later](https://www.gnu.org/licenses/gpl-3.0.html)  
 
 ---
@@ -101,6 +101,11 @@ Yes! The plugin declares full compatibility with WooCommerce HPOS (Custom Order 
 ---
 
 ## Changelog
+
+### 1.0.1 - 2026/08/16
+* Rename 'text' swatch to 'button' swatch.
+* Improve CSS class selectors for better theme compatibility.
+* Update README.
 
 ### 1.0.0 - 2026/08/15
 * Initial release.

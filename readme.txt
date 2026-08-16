@@ -4,7 +4,7 @@ Tags: woocommerce, swatches, variation-swatches, color-swatches, attribute-swatc
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -98,6 +98,11 @@ Yes! The plugin declares full compatibility with WooCommerce HPOS (Custom Order 
 6. Hovering over or clicking on an image swatch will trigger a tooltip to showcase a larger version of the image.
 
 == Changelog ==
+
+= 1.0.1 - 2026/08/16 =
+* Rename 'text' swatch to 'button' swatch.
+* Improve CSS class selectors for better theme compatibility.
+* Update README.
 
 = 1.0.0 - 2026/08/15 =
 * Initial release.
