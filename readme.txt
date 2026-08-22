@@ -1,6 +1,6 @@
 === StoreStack Attribute Swatches for WooCommerce ===
 Contributors: tiagosartor3, storestack
-Tags: woocommerce, swatches, variation-swatches, color-swatches, attribute-swatches
+Tags: woocommerce, swatches, variations, product attributes, visual selectors
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 8.1

@@ -3,7 +3,7 @@
 Transform WooCommerce variation dropdowns into beautiful, interactive color, image, button, and radio swatches with custom grouping and tooltips.
 
 **Contributors:** [tiagosartor3](https://profiles.wordpress.org/tiagosartor3), [storestack](https://profiles.wordpress.org/storestack)  
-**Tags:** `woocommerce`, `swatches`, `variation swatches`, `attribute swatches`, `image swatches`  
+**Tags:** `woocommerce`, `swatches`, `variations`, `product attributes`, `visual selectors`  
 **Requires at least:** 6.2  
 **Tested up to:** 7.0  
 **Requires PHP:** 8.1  
