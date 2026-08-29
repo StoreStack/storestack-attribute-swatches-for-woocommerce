@@ -56,8 +56,8 @@ class Swatches extends AbstractBase
     /**
      * Register custom swatch types for WooCommerce attributes.
      * 
-     * @param array $types Existing attribute types
-     * @return array Merged array with custom swatch types added
+     * @param array<string, string> $types Existing attribute types
+     * @return array<string, string> Merged array with custom swatch types added
      */
     public function register_swatch_types(array $types): array
     {
@@ -138,7 +138,7 @@ class Swatches extends AbstractBase
         <?php echo $is_option_edit_page ? '<tr class="form-field"><th>' : '<div class="form-field">' ?>
         <label for="ssasfw_swatch_image" style="margin-bottom: 8px;"><?php esc_html_e('Image', 'storestack-attribute-swatches-for-woocommerce'); ?></label>
         <?php if ($is_option_edit_page) echo '</th><td>' ?>
-        <img src="<?php echo esc_url($img_url); ?>" class="swatch-image-preview" style="max-width: 80px; max-height: 80px; border:1px solid #ddd; border-radius:4px;" />
+        <img src="<?php echo esc_url((string)$img_url); ?>" class="swatch-image-preview" style="max-width: 80px; max-height: 80px; border:1px solid #ddd; border-radius:4px;" />
         <button type="button" class="button swatch-image-upload-button"><?php esc_html_e('Add Image', 'storestack-attribute-swatches-for-woocommerce'); ?></button>
         <button type="button" class="button swatch-image-remove-button"><?php esc_html_e('Remove Image', 'storestack-attribute-swatches-for-woocommerce'); ?></button>
         <input type="hidden" id="ssasfw_swatch_image" name="ssasfw_swatch_image" value="<?php if ($img_id) echo esc_attr($img_id); ?>" />
@@ -149,6 +149,9 @@ class Swatches extends AbstractBase
 
     /**
      * Add swatch column header to attribute terms table
+     * 
+     * @param array<string, string> $columns
+     * @return array<string, string>
      */
     public function add_swatch_column(array $columns): array
     {
@@ -192,6 +195,9 @@ class Swatches extends AbstractBase
 
     /**
      * Add 'group' column header to attribute terms table
+     * 
+     * @param array<string, string> $columns
+     * @return array<string, string>
      */
     public function add_group_column(array $columns): array
     {
@@ -307,6 +313,8 @@ class Swatches extends AbstractBase
 
     /**
      * Render attribute options as swatches on frontend
+     * 
+     * @param array<string, mixed> $args
      */
     public function attribute_options_html(string $html, array $args): string
     {
@@ -371,8 +379,10 @@ class Swatches extends AbstractBase
 
     /**
      * Render individual swatch HTML
+     * 
+     * @param array<string, mixed> $args
      */
-    private function render_swatch(\WP_Term $term, object $attribute, array $args): string
+    private function render_swatch(\WP_Term $term, \stdClass $attribute, array $args): string
     {
         $selected = sanitize_title($args['selected']) === $term->slug ? 'selected' : '';
         $img_placeholder = wc_placeholder_img('thumbnail', ['class' => 'image-swatch']);

@@ -37,7 +37,7 @@ class Groups extends AbstractBase
      */
     public function add_groups_field(): void
     {
-        $attribute_id = isset($_GET['edit']) ? absint($_GET['edit']) : 0;
+        $attribute_id = absint($_GET['edit'] ?? 0);
         $attribute = wc_get_attribute($attribute_id);
 
         // Get existing groups
@@ -61,6 +61,8 @@ class Groups extends AbstractBase
 
     /**
      * Save attribute groups on form submission
+     * 
+     * @param array<string, mixed> $data
      */
     public function save_attribute_groups(int $attribute_id, array $data, ?string $old_slug = null): void
     {
@@ -86,6 +88,9 @@ class Groups extends AbstractBase
 
     /**
      * Clean up term meta when groups are updated for an attribute
+     * 
+     * @param array<string, string> $new_groups
+     * @param array<string, string> $old_groups
      */
     private function cleanup_terms(int $attribute_id, array $new_groups, array $old_groups): void
     {

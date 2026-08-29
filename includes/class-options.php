@@ -37,6 +37,8 @@ class Options extends AbstractBase
 
     /**
      * Save attribute option metadata on term creation or edit
+     * 
+     * @param array<string, mixed> $args
      */
     public function on_save_attribute_option(int $term_id, int $term_taxonomy_id, string $taxonomy_slug, array $args): void
     {

@@ -1,6 +1,10 @@
 .*
 .*/
 src/
+vendor/
+node_modules/
+README.md
 *.js.map
 tsconfig.json
-README.md
+composer.*
+phpstan*

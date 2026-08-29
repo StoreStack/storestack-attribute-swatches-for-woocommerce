@@ -16,9 +16,9 @@ defined('ABSPATH') || exit;
 class Helpers
 {
     /**
-     * Get a WooCommerce Attribute object based on the provided taxonomy name.
+     * Get a WooCommerce attribute object based on the provided taxonomy name.
      */
-    public static function get_attribute(string $taxonomy_name): ?object
+    public static function get_attribute(string $taxonomy_name): \stdClass|null
     {
         $attribute_id = wc_attribute_taxonomy_id_by_name($taxonomy_name);
         $attribute = wc_get_attribute($attribute_id);

@@ -44,7 +44,7 @@ class Loader
     /**
      * Run the plugin loader by returning the singleton instance
      */
-    public static function run()
+    public static function run(): Loader
     {
         if (empty(self::$instance)) {
             self::$instance = new self();
@@ -55,10 +55,9 @@ class Loader
     /**
      * Define plugin constants
      */
-    private function define_constants()
+    private function define_constants(): void
     {
         define('SSASFW_PLUGIN_VERSION', '1.0.1');
-        define('SSASFW_PLUGIN_FILE', __FILE__);
         define('SSASFW_PLUGIN_PATH', plugin_dir_path(__FILE__));
         define('SSASFW_PLUGIN_URL', plugin_dir_url(__FILE__));
     }
@@ -66,14 +65,13 @@ class Loader
     /**
      * Load required classes
      */
-    private function load_classes()
+    private function load_classes(): void
     {
         $includes_dir = SSASFW_PLUGIN_PATH . 'includes/';
 
         require_once $includes_dir . 'class-abstract-base.php';
 
         require_once $includes_dir . 'class-helpers.php';
-        new Helpers();
 
         require_once $includes_dir . 'class-swatches.php';
         new Swatches();
@@ -88,7 +86,7 @@ class Loader
     /**
      * Initialize the plugin
      */
-    public function init()
+    public function init(): void
     {
         $this->define_constants();
         $this->load_classes();
@@ -103,7 +101,7 @@ class Loader
     /**
      * Enqueue admin scripts and styles
      */
-    public function enqueue_admin_scripts()
+    public function enqueue_admin_scripts(): void
     {
         wp_enqueue_media();
         wp_enqueue_script('storestack-attribute-swatches-for-woocommerce-admin', SSASFW_PLUGIN_URL . 'assets/js/admin.js', array('jquery', 'wp-color-picker'), SSASFW_PLUGIN_VERSION, true);
@@ -116,7 +114,7 @@ class Loader
     /**
      * Enqueue frontend scripts and styles
      */
-    public function enqueue_frontend_scripts()
+    public function enqueue_frontend_scripts(): void
     {
         wp_enqueue_style('storestack-attribute-swatches-for-woocommerce', SSASFW_PLUGIN_URL . 'assets/css/frontend.css', array(), SSASFW_PLUGIN_VERSION);
         wp_enqueue_script('storestack-attribute-swatches-for-woocommerce', SSASFW_PLUGIN_URL . 'assets/js/frontend.js', array('jquery'), SSASFW_PLUGIN_VERSION, true);
@@ -125,7 +123,7 @@ class Loader
     /**
      * Declare compatibility with WooCommerce HPOS custom order tables
      */
-    public function declare_wc_support()
+    public function declare_wc_support(): void
     {
         if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
             \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
