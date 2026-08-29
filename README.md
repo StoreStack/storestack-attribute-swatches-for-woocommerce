@@ -5,8 +5,8 @@ Transform WooCommerce variation dropdowns into beautiful, interactive color, ima
 **Contributors:** [tiagosartor3](https://profiles.wordpress.org/tiagosartor3), [storestack](https://profiles.wordpress.org/storestack)  
 **Tags:** `woocommerce`, `swatches`, `variations`, `product attributes`, `visual selectors`  
 **Requires at least:** 6.2  
-**Tested up to:** 7.0  
-**Requires PHP:** 8.1  
+**Tested up to:** 7.1  
+**Requires PHP:** 8.2  
 **Stable tag:** 1.0.1  
 **License:** [GPLv3 or later](https://www.gnu.org/licenses/gpl-3.0.html)  
 
