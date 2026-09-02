@@ -1,5 +1,4 @@
-<?php
-
+<?php // phpcs:disable WordPress.Files.FileName.InvalidClassFileName
 /**
  * Plugin Name:        StoreStack Attribute Swatches for WooCommerce
  * Plugin URI:         https://github.com/StoreStack/storestack-attribute-swatches-for-woocommerce
@@ -15,120 +14,137 @@
  * Requires Plugins:   woocommerce
  * WC tested up to:    11.0
  * Requires PHP:       8.2
+ *
+ * @package StoreStackAttributeSwatchesForWooCommerce
  */
 
 declare(strict_types=1);
 
 namespace StoreStackAttributeSwatchesForWooCommerce;
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
-class Loader
-{
-    /**
-     * Singleton instance
-     */
-    private static ?self $instance = null;
+/**
+ * Main plugin loader class
+ */
+class Loader {
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        add_action('before_woocommerce_init', [$this, 'declare_wc_support']);
-        add_action('plugins_loaded', [$this, 'init']);
-        add_action('admin_enqueue_scripts', [$this, 'enqueue_admin_scripts']);
-        add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_scripts']);
-    }
+	/**
+	 * Singleton instance
+	 *
+	 * @var self|null
+	 */
+	private static ?self $instance = null;
 
-    /**
-     * Run the plugin loader by returning the singleton instance
-     */
-    public static function run(): Loader
-    {
-        if (empty(self::$instance)) {
-            self::$instance = new self();
-        }
-        return self::$instance;
-    }
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		add_action( 'before_woocommerce_init', array( $this, 'declare_wc_support' ) );
+		add_action( 'plugins_loaded', array( $this, 'init' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts' ) );
+	}
 
-    /**
-     * Define plugin constants
-     */
-    private function define_constants(): void
-    {
-        define('SSASFW_PLUGIN_VERSION', '1.0.1');
-        define('SSASFW_PLUGIN_PATH', plugin_dir_path(__FILE__));
-        define('SSASFW_PLUGIN_URL', plugin_dir_url(__FILE__));
-    }
+	/**
+	 * Run the plugin loader by returning the singleton instance
+	 *
+	 * @return self
+	 */
+	public static function run(): self {
+		if ( empty( self::$instance ) ) {
+			self::$instance = new self();
+		}
+		return self::$instance;
+	}
 
-    /**
-     * Load required classes
-     */
-    private function load_classes(): void
-    {
-        $includes_dir = SSASFW_PLUGIN_PATH . 'includes/';
+	/**
+	 * Define plugin constants
+	 *
+	 * @return void
+	 */
+	private function define_constants(): void {
+		define( 'SSASFW_PLUGIN_VERSION', '1.0.1' );
+		define( 'SSASFW_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+		define( 'SSASFW_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+	}
 
-        require_once $includes_dir . 'class-abstract-base.php';
+	/**
+	 * Load required classes
+	 *
+	 * @return void
+	 */
+	private function load_classes(): void {
+		$includes_dir = SSASFW_PLUGIN_PATH . 'includes/';
 
-        require_once $includes_dir . 'class-helpers.php';
+		require_once $includes_dir . 'class-abstractbase.php';
 
-        require_once $includes_dir . 'class-swatches.php';
-        new Swatches();
+		require_once $includes_dir . 'class-helpers.php';
 
-        require_once $includes_dir . 'class-options.php';
-        new Options();
+		require_once $includes_dir . 'class-swatches.php';
+		new Swatches();
 
-        require_once $includes_dir . 'class-groups.php';
-        new Groups();
-    }
+		require_once $includes_dir . 'class-options.php';
+		new Options();
 
-    /**
-     * Initialize the plugin
-     */
-    public function init(): void
-    {
-        $this->define_constants();
-        $this->load_classes();
+		require_once $includes_dir . 'class-groups.php';
+		new Groups();
+	}
 
-        $installed_version = get_option('ssasfw_attribute_swatches_plugin_version');
+	/**
+	 * Initialize the plugin
+	 *
+	 * @return void
+	 */
+	public function init(): void {
+		$this->define_constants();
+		$this->load_classes();
 
-        if ($installed_version !== SSASFW_PLUGIN_VERSION) {
-            update_option('ssasfw_attribute_swatches_plugin_version', SSASFW_PLUGIN_VERSION);
-        }
-    }
+		$installed_version = get_option( 'ssasfw_attribute_swatches_plugin_version' );
 
-    /**
-     * Enqueue admin scripts and styles
-     */
-    public function enqueue_admin_scripts(): void
-    {
-        wp_enqueue_media();
-        wp_enqueue_script('storestack-attribute-swatches-for-woocommerce-admin', SSASFW_PLUGIN_URL . 'assets/js/admin.js', array('jquery', 'wp-color-picker'), SSASFW_PLUGIN_VERSION, true);
-        wp_localize_script('storestack-attribute-swatches-for-woocommerce-admin', 'ssasfwAdminParams', [
-            'placeholderImg' => wc_placeholder_img_src('thumbnail'),
-            'groupsPlaceholder' => esc_js(__('Select or type groups', 'storestack-attribute-swatches-for-woocommerce')),
-        ]);
-    }
+		if ( SSASFW_PLUGIN_VERSION !== $installed_version ) {
+			update_option( 'ssasfw_attribute_swatches_plugin_version', SSASFW_PLUGIN_VERSION );
+		}
+	}
 
-    /**
-     * Enqueue frontend scripts and styles
-     */
-    public function enqueue_frontend_scripts(): void
-    {
-        wp_enqueue_style('storestack-attribute-swatches-for-woocommerce', SSASFW_PLUGIN_URL . 'assets/css/frontend.css', array(), SSASFW_PLUGIN_VERSION);
-        wp_enqueue_script('storestack-attribute-swatches-for-woocommerce', SSASFW_PLUGIN_URL . 'assets/js/frontend.js', array('jquery'), SSASFW_PLUGIN_VERSION, true);
-    }
+	/**
+	 * Enqueue admin scripts and styles
+	 *
+	 * @return void
+	 */
+	public function enqueue_admin_scripts(): void {
+		wp_enqueue_media();
+		wp_enqueue_script( 'storestack-attribute-swatches-for-woocommerce-admin', SSASFW_PLUGIN_URL . 'assets/js/admin.js', array( 'jquery', 'wp-color-picker' ), SSASFW_PLUGIN_VERSION, true );
+		wp_localize_script(
+			'storestack-attribute-swatches-for-woocommerce-admin',
+			'ssasfwAdminParams',
+			array(
+				'placeholderImg'    => wc_placeholder_img_src( 'thumbnail' ),
+				'groupsPlaceholder' => esc_js( __( 'Select or type groups', 'storestack-attribute-swatches-for-woocommerce' ) ),
+			)
+		);
+	}
 
-    /**
-     * Declare compatibility with WooCommerce HPOS custom order tables
-     */
-    public function declare_wc_support(): void
-    {
-        if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
-            \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
-        }
-    }
+	/**
+	 * Enqueue frontend scripts and styles
+	 *
+	 * @return void
+	 */
+	public function enqueue_frontend_scripts(): void {
+		wp_enqueue_style( 'storestack-attribute-swatches-for-woocommerce', SSASFW_PLUGIN_URL . 'assets/css/frontend.css', array(), SSASFW_PLUGIN_VERSION );
+		wp_enqueue_script( 'storestack-attribute-swatches-for-woocommerce', SSASFW_PLUGIN_URL . 'assets/js/frontend.js', array( 'jquery' ), SSASFW_PLUGIN_VERSION, true );
+	}
+
+	/**
+	 * Declare compatibility with WooCommerce HPOS custom order tables
+	 *
+	 * @return void
+	 */
+	public function declare_wc_support(): void {
+		if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+		}
+	}
 }
 
 
