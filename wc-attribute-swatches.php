@@ -1,19 +1,20 @@
 <?php // phpcs:disable WordPress.Files.FileName.InvalidClassFileName
 /**
- * Plugin Name:        StoreStack Attribute Swatches for WooCommerce
- * Plugin URI:         https://github.com/StoreStack/storestack-attribute-swatches-for-woocommerce
- * Description:        This plugin allows you to add color, image, button and radio swatches to WooCommerce attributes, so you can easily manage and display them on your product pages.
- * Version:            1.0.1
- * Author:             StoreStack
- * Author URI:         https://github.com/StoreStack
- * License:            GPLv3 or later
- * License URI:        https://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain:        storestack-attribute-swatches-for-woocommerce
- * Requires at least:  6.2
- * Tested up to:       7.1
- * Requires Plugins:   woocommerce
- * WC tested up to:    11.0
- * Requires PHP:       8.2
+ * Plugin Name:          StoreStack Attribute Swatches for WooCommerce
+ * Plugin URI:           https://github.com/StoreStack/storestack-attribute-swatches-for-woocommerce
+ * Description:          This plugin allows you to add color, image, button and radio swatches to WooCommerce attributes, so you can easily manage and display them on your product pages.
+ * Version:              1.1.0
+ * Author:               StoreStack
+ * Author URI:           https://github.com/StoreStack
+ * License:              GPLv3 or later
+ * License URI:          https://www.gnu.org/licenses/gpl-3.0.html
+ * Text Domain:          storestack-attribute-swatches-for-woocommerce
+ * Requires at least:    6.7
+ * Tested up to:         7.1
+ * Requires Plugins:     woocommerce
+ * WC requires at least: 10.0
+ * WC tested up to:      11.1
+ * Requires PHP:         8.2
  *
  * @package StoreStackAttributeSwatchesForWooCommerce
  */
@@ -64,7 +65,7 @@ class Loader {
 	 * @return void
 	 */
 	private function define_constants(): void {
-		define( 'SSASFW_PLUGIN_VERSION', '1.0.1' );
+		define( 'SSASFW_PLUGIN_VERSION', '1.1.0' );
 		define( 'SSASFW_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 		define( 'SSASFW_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 	}
