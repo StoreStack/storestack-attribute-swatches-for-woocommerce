@@ -103,12 +103,13 @@ Yes! The plugin declares full compatibility with WooCommerce HPOS (Custom Order 
 ## Changelog
 
 ### 1.1.0 - 2026/09/07
-* Update minimum requirements to PHP 8.2, WordPress 6.7, and WooCommerce 10.0.
+* Updated the minimum supported versions to PHP 8.2, WordPress 6.7, and WooCommerce 10.0.
+* Improved adherence to WordPress Coding Standards and strengthened type declarations to enhance performance, reliability, and maintainability.
 
 ### 1.0.1 - 2026/08/16
-* Rename 'text' swatch to 'button' swatch.
-* Improve CSS class selectors for better theme compatibility.
-* Update README.
+* Renamed 'text' swatch to 'button' swatch.
+* Improved CSS class selectors for better theme compatibility.
+* Updated README.
 
 ### 1.0.0 - 2026/08/15
 * Initial release.
