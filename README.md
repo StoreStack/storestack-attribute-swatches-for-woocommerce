@@ -30,7 +30,7 @@ Transform WooCommerce variation dropdowns into beautiful, interactive color, ima
 
 ### Integrations
 
-Works seamlessly with the following plugins:
+Works with the following plugins:
 
 * **[WooCommerce](https://wordpress.org/plugins/woocommerce)**
 * **[StoreStack Attribute Fees for WooCommerce](https://wordpress.org/plugins/storestack-attribute-fees-for-woocommerce)**
@@ -107,7 +107,7 @@ Yes! The plugin declares full compatibility with WooCommerce HPOS (Custom Order 
 * Improved adherence to WordPress Coding Standards and strengthened type declarations to enhance performance, reliability, and maintainability.
 
 ### 1.0.1 - 2026/08/16
-* Renamed 'text' swatch to 'button' swatch.
+* Renamed "text" swatch to "button" swatch.
 * Improved CSS class selectors for better theme compatibility.
 * Updated README.
 
