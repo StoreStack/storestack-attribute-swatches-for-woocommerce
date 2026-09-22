@@ -6,7 +6,7 @@
 
     /* Build Output */
     "outDir": "./assets/js",
-    "rootDir": "./src",
+    "rootDir": "./src/ts",
     "removeComments": true,
     "sourceMap": true,
 
