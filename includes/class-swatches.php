@@ -389,6 +389,10 @@ class Swatches extends AbstractBase {
 		$ungrouped_terms = array();
 
 		foreach ( $terms as $term ) {
+			if ( ! $term || ! $term instanceof \WP_Term ) {
+				continue;
+			}
+
 			$group = get_term_meta( $term->term_id, 'ssasfw_swatch_group', true );
 
 			if ( $group ) {
