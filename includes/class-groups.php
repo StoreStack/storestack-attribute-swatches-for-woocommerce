@@ -122,7 +122,7 @@ class Groups extends AbstractBase {
 			)
 		);
 
-		if ( is_wp_error( $terms ) || empty( $terms ) ) {
+		if ( empty( $terms ) || is_wp_error( $terms ) ) {
 			return;
 		}
 
