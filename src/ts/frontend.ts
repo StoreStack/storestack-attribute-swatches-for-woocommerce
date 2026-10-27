@@ -1,3 +1,5 @@
+declare const jQuery: any;
+
 interface TooltipManagerType {
     /**
      * Show the tooltip for a given swatch.
@@ -22,10 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const labels = form.querySelectorAll<HTMLLabelElement>('th label');
     const swatchContainers = form.querySelectorAll<HTMLElement>('.ssasfw-swatch-container');
     const selectedOptions = new Map<string, string>();
-
-    // Check if jQuery is available in the global scope
-    const jQueryFn = (window as Window & typeof globalThis & { jQuery?: any }).jQuery;
-
 
     // Initialize labels with colons and span elements
     labels.forEach((label) => {
@@ -252,9 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     syncSwatchesState(); // Initial state sync on page load
-    if (jQueryFn) {
-        jQueryFn(form).on('woocommerce_variation_has_changed woocommerce_update_variation_values', syncSwatchesState);
-    }
+    jQuery(form).on('woocommerce_variation_has_changed woocommerce_update_variation_values', syncSwatchesState);
 
 
     /**
@@ -278,5 +274,5 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     };
-    form.querySelector('a.reset_variations')?.addEventListener('click', handleReset);
+    jQuery(document).on('click', '.reset_variations', handleReset);
 });

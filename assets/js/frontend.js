@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const labels = form.querySelectorAll('th label');
     const swatchContainers = form.querySelectorAll('.ssasfw-swatch-container');
     const selectedOptions = new Map();
-    const jQueryFn = window.jQuery;
     labels.forEach((label) => {
         if (label.textContent && !label.textContent.includes(':')) {
             label.textContent += ': ';
@@ -164,9 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     syncSwatchesState();
-    if (jQueryFn) {
-        jQueryFn(form).on('woocommerce_variation_has_changed woocommerce_update_variation_values', syncSwatchesState);
-    }
+    jQuery(form).on('woocommerce_variation_has_changed woocommerce_update_variation_values', syncSwatchesState);
     const handleReset = () => {
         selectEls.forEach((select) => {
             select.value = '';
@@ -182,6 +179,5 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     };
-    form.querySelector('a.reset_variations')?.addEventListener('click', handleReset);
+    jQuery(document).on('click', '.reset_variations', handleReset);
 });
-//# sourceMappingURL=frontend.js.map

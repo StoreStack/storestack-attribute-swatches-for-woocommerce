@@ -8,7 +8,7 @@
     "outDir": "./assets/js",
     "rootDir": "./src/ts",
     "removeComments": true,
-    "sourceMap": true,
+    "sourceMap": false,
 
     /* Strictness & Quality */
     "strict": true,
