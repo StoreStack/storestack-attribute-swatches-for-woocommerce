@@ -3,7 +3,7 @@
  * Plugin Name:          StoreStack Attribute Swatches for WooCommerce
  * Plugin URI:           https://github.com/StoreStack/storestack-attribute-swatches-for-woocommerce
  * Description:          This plugin allows you to add color, image, button and radio swatches to WooCommerce attributes, so you can easily manage and display them on your product pages.
- * Version:              1.1.0
+ * Version:              1.1.1
  * Author:               StoreStack
  * Author URI:           https://github.com/StoreStack
  * License:              GPLv3 or later
@@ -13,7 +13,7 @@
  * Tested up to:         7.1
  * Requires Plugins:     woocommerce
  * WC requires at least: 10.0
- * WC tested up to:      11.1
+ * WC tested up to:      11.2
  * Requires PHP:         8.2
  *
  * @package StoreStackAttributeSwatchesForWooCommerce
@@ -65,7 +65,7 @@ class Loader {
 	 * @return void
 	 */
 	private function define_constants(): void {
-		define( 'SSASFW_PLUGIN_VERSION', '1.1.0' );
+		define( 'SSASFW_PLUGIN_VERSION', '1.1.1' );
 		define( 'SSASFW_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 		define( 'SSASFW_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 	}
